@@ -1,0 +1,26 @@
+# Node.js dependencies
+node_modules/
+# Environment variables
+.env
+.env.*
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+# OS files
+.DS_Store
+Thumbs.db
+# Build directories
+dist/
+build/
+# Optional: Multer/temp uploads (if you use a local uploads folder)
+uploads/
+# Coverage reports
+coverage/
+# IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
