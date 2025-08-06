@@ -1,7 +1,6 @@
-// src/App.js
 import React, { useState } from 'react';
 
-const API_BASE = 'https://poly-activity-points.onrender.com/api'; // <- Change if running locally
+const API_BASE = 'https://poly-activity-points.onrender.com/api'; // Change if running locally
 
 function App() {
   const [step, setStep] = useState('enterRegisterNumber'); // steps: enterRegisterNumber, verifyOtp, login, profile
@@ -16,6 +15,10 @@ function App() {
 
   const submitRegisterNumber = async () => {
     setMessage('');
+    if (!registerNumber.trim()) {
+      setMessage('Please enter your register number.');
+      return;
+    }
     try {
       const res = await fetch(`${API_BASE}/auth/send-otp`, {
         method: 'POST',
@@ -36,7 +39,7 @@ function App() {
 
   const submitVerifyOtp = async () => {
     setMessage('');
-    if (!otp || !password || !batch || !branch) {
+    if (!otp.trim() || !password.trim() || !batch.trim() || !branch.trim()) {
       setMessage('Please fill in all fields.');
       return;
     }
@@ -50,6 +53,11 @@ function App() {
       if (res.ok) {
         setMessage('Password set successfully. Please login now.');
         setStep('login');
+        // Clear OTP and related inputs (optional)
+        setOtp('');
+        setBatch('');
+        setBranch('');
+        setPassword('');
       } else {
         setMessage(data.message || 'Error verifying OTP.');
       }
@@ -60,6 +68,10 @@ function App() {
 
   const submitLogin = async () => {
     setMessage('');
+    if (!registerNumber.trim() || !password.trim()) {
+      setMessage('Please enter register number and password.');
+      return;
+    }
     try {
       const res = await fetch(`${API_BASE}/auth/login`, {
         method: 'POST',
@@ -70,8 +82,8 @@ function App() {
       if (res.ok) {
         setToken(data.token);
         setProfile(data.user);
-        setStep('profile');
         setMessage(`Welcome, ${data.user.name}!`);
+        setStep('profile');
       } else {
         setMessage(data.message || 'Login failed.');
       }
@@ -186,6 +198,8 @@ function App() {
           <p><strong>Register Number:</strong> {profile.registerNumber}</p>
           <p><strong>Email:</strong> {profile.email}</p>
           <p><strong>Role:</strong> {profile.role}</p>
+          <p><strong>Batch:</strong> {profile.batch || 'Not set'}</p>
+          <p><strong>Branch:</strong> {profile.branch || 'Not set'}</p>
           <button onClick={logout} style={{ width: '100%' }}>
             Logout
           </button>

@@ -6,12 +6,17 @@ const tutorMiddleware = require('../middleware/tutorMiddleware');
 
 router.use(authMiddleware, tutorMiddleware);
 
-// Students routes:
+// Students routes
 router.get('/students', tutorController.getAllStudentsWithPoints);
-// TODO: add POST /students, PUT /students/:id, DELETE /students/:id
+router.post('/students', tutorController.createStudent);
+router.put('/students/:id', tutorController.updateStudent);
+router.delete('/students/:id', tutorController.deleteStudent);
+router.post('/students/:id/reset-password', tutorController.resetStudentPassword);
 
-// Categories routes:
+// Categories routes
+router.get('/categories', tutorController.getAllCategories);
 router.post('/categories', tutorController.createCategory);
-// TODO: add other category CRUD routes
+router.put('/categories/:id', tutorController.updateCategory);
+router.delete('/categories/:id', tutorController.deleteCategory);
 
 module.exports = router;
