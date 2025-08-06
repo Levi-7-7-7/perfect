@@ -27,13 +27,16 @@ const studentSchema = new mongoose.Schema({
     default: null
   },
   batch: {
-    type: String,
-    required: true,  // example: "2023-2026"
-  },
-  branch: {
-    type: String,
-    required: true, // example: "Computer Engineering"
-  },
+  type: String,
+  required: false,
+  default: null
+},
+branch: {
+  type: String,
+  required: false,
+  default: null
+},
+
   totalPoints: {
     type: Number,
     default: 0
