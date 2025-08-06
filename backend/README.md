@@ -1,4 +1,3 @@
-```markdown
 # Activity Points Tracking System - Backend
 
 This is the backend API server for the Activity Points Tracking System, a platform to manage student activities, certificates, and points tracking for tutors and students.
@@ -185,4 +184,3 @@ This project is licensed under the [ISC License](LICENSE).
 ---
 
 *© 2025 LPT*
-```
