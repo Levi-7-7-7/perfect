@@ -71,27 +71,24 @@ This backend provides a RESTful API with authentication and role-based access co
 ### Installation
 
 1. Clone this repo and navigate inside the backend folder:
-```
 
+```
 git clone https://github.com/Levi-7-7-7/perfect.git
 cd perfect/backend
-
 ```
 
 2. Install dependencies:
+
 ```
-
 npm install
-
 ```
 
 3. Create a `.env` file in the root of `backend/` (see [Environment Variables](#environment-variables) below for required vars).
 
 4. Start the development server:
+
 ```
-
 npm run dev
-
 ```
 
 5. The API runs on `http://localhost:5000` (or your configured port).
@@ -103,7 +100,6 @@ npm run dev
 Create a `.env` file with the following variables:
 
 ```
-
 PORT=5000
 MONGO_URI=your_mongo_connection_string
 JWT_SECRET=your_jwt_secret_key
@@ -113,7 +109,6 @@ IMAGEKIT_PUBLIC_KEY=your_imagekit_public_key
 IMAGEKIT_PRIVATE_KEY=your_imagekit_private_key
 IMAGEKIT_URL_ENDPOINT=your_imagekit_url_endpoint
 ADMIN_KEY=your_admin_secret_key
-
 ```
 
 ---
@@ -152,19 +147,17 @@ ADMIN_KEY=your_admin_secret_key
 ## Project Structure
 
 ```
-
 backend/
-├── controllers/       \# Request handlers for different resources
-├── middleware/        \# Authentication and authorization middleware
-├── models/            \# Mongoose schemas/models
-├── routes/            \# Route definitions for APIs
-├── utils/             \# Utility modules (ImageKit config, multer setup)
-├── uploads/           \# Multer temp uploads (ignored in git)
-├── .env               \# Environment variables (ignored in git)
-├── index.js           \# Server entry point
-├── package.json       \# Dependencies and scripts
-└── README.md          \# Project documentation
-
+├── controllers/       # Request handlers for different resources
+├── middleware/        # Authentication and authorization middleware
+├── models/            # Mongoose schemas/models
+├── routes/            # Route definitions for APIs
+├── utils/             # Utility modules (ImageKit config, multer setup)
+├── uploads/           # Multer temp uploads (ignored in git)
+├── .env               # Environment variables (ignored in git)
+├── index.js           # Server entry point
+├── package.json       # Dependencies and scripts
+└── README.md          # Project documentation
 ```
 
 ---
@@ -193,6 +186,3 @@ This project is licensed under the [ISC License](LICENSE).
 
 *© 2025 LPT*
 ```
-
-
-
